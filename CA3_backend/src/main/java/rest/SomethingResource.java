@@ -22,7 +22,7 @@ import utils.EMF_Creator;
  *
  * @author Bruger
  */
-@Path("/info")
+@Path("/something")
 public class SomethingResource {
 
     private static EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.DEV, EMF_Creator.Strategy.CREATE);
