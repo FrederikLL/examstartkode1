@@ -42,19 +42,19 @@ public class DemoResource {
     }
 
     //Just to verify if the database is setup
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("all")
-    public String allUsers() {
-
-        EntityManager em = EMF.createEntityManager();
-        try {
-            List<User> users = em.createQuery("select user from User user").getResultList();
-            return "[" + users.size() + "]";
-        } finally {
-            em.close();
-        }
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("all")
+//    public String allUsers() {
+//
+//        EntityManager em = EMF.createEntityManager();
+//        try {
+//            List<User> users = em.createQuery("select user from User user").getResultList();
+//            return "[" + users.size() + "]";
+//        } finally {
+//            em.close();
+//        }
+//    }
 
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
