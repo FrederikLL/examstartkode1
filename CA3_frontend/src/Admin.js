@@ -5,7 +5,7 @@ import React from "react"
         return (
            <div>
                <p>
-                   Hello Admin
+                   Hello Admins
                </p>
            </div>
         );
