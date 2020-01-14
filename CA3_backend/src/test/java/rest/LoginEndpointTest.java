@@ -11,8 +11,8 @@ import java.net.URI;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.core.UriBuilder;
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+//import org.glassfish.grizzly.http.server.HttpServer;
+//import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import static org.hamcrest.Matchers.equalTo;
 import org.junit.jupiter.api.AfterAll;
@@ -29,13 +29,13 @@ public class LoginEndpointTest {
     private static final String SERVER_URL = "http://localhost/api";
 
     static final URI BASE_URI = UriBuilder.fromUri(SERVER_URL).port(SERVER_PORT).build();
-    private static HttpServer httpServer;
+    //private static HttpServer httpServer;
     private static EntityManagerFactory emf;
 
-    static HttpServer startServer() {
-        ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
-        return GrizzlyHttpServerFactory.createHttpServer(BASE_URI, rc);
-    }
+//    static HttpServer startServer() {
+//        ResourceConfig rc = ResourceConfig.forApplication(new ApplicationConfig());
+//        return GrizzlyHttpServerFactory.createHttpServer(BASE_URI, rc);
+//    }
 
     @BeforeAll
     public static void setUpClass() {
@@ -43,7 +43,7 @@ public class LoginEndpointTest {
         EMF_Creator.startREST_TestWithDB();
         emf = EMF_Creator.createEntityManagerFactory(EMF_Creator.DbSelector.TEST, EMF_Creator.Strategy.DROP_AND_CREATE);
 
-        httpServer = startServer();
+        //httpServer = startServer();
         //Setup RestAssured
         RestAssured.baseURI = SERVER_URL;
         RestAssured.port = SERVER_PORT;
@@ -54,7 +54,7 @@ public class LoginEndpointTest {
     public static void closeTestServer() {
         //Don't forget this, if you called its counterpart in @BeforeAll
         EMF_Creator.endREST_TestWithDB();
-        httpServer.shutdownNow();
+        //httpServer.shutdownNow();
     }
 
     // Setup the DataBase (used by the test-server and this test) in a known state BEFORE EACH TEST
