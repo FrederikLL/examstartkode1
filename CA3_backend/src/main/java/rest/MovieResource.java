@@ -74,7 +74,8 @@ public class MovieResource {
 //        return all;
 //  }
     
-    //This endpoint must require a client to be authenticated with a sufficient role.
+    //OBS!!!This endpoint must require a client 
+    //to be authenticated with a sufficient role.
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("movie-info-all/{title}")
@@ -84,6 +85,12 @@ public class MovieResource {
         return all;
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("movie-count/{title}")
+    public String getMovieCount(@PathParam("title") String title){
+        return "hi";
+    }
 
 
 }
