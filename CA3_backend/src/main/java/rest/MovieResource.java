@@ -298,7 +298,10 @@ public class MovieResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("movie-count/{title}")
     public String getMovieCount(@PathParam("title") String title){
-        return "hi";
+        int hitcount = 2;
+        hitcount++;
+
+        return "This site has " + hitcount + " hits!";
     }
 
     public static String replaceAll(String str) {
