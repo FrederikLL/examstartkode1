@@ -3,6 +3,7 @@ package utils;
 
 import entities.Role;
 import entities.User;
+import entities.Movie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -24,7 +25,7 @@ public class SetupTestUsers {
     User user = new User("user", "test1");
     User admin = new User("admin", "test1");
     User both = new User("user_admin", "test1");
-
+    Movie mov = new Movie("Minegenfilm");
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
       throw new UnsupportedOperationException("You have not changed the passwords");
 
@@ -35,6 +36,7 @@ public class SetupTestUsers {
     admin.addRole(adminRole);
     both.addRole(userRole);
     both.addRole(adminRole);
+    em.persist(mov);
     em.persist(userRole);
     em.persist(adminRole);
     em.persist(user);

@@ -12,6 +12,7 @@ import Swi from "./Switch";
 import Admins from "./Admin";
 import Users from "./Users";
 import Home from "./Home";
+import MovieSimple from "./MovieSimple";
 
 
 
@@ -80,12 +81,16 @@ class App extends Component {
     return (
       <Router>
         <Home />
+        <Nav nav = {Nav}/>
+            <Swi switch = {Swi}/>
+             <button onClick={this.logout}>Logout</button>
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :
           (<div>
             <LoggedIn />
-            <Nav nav = {Nav}/>
-            <Swi switch = {Swi}/>
-             <button onClick={this.logout}>Logout</button>
+            <li>
+            <Link to="/movieall">MovieAll</Link>
+          </li>
+            
              </div>)}
             
 

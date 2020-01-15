@@ -21,21 +21,13 @@ import "./index.css";
           <li>
             <Link to="/admins">See all admins</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/starwars">Starwars Person</Link>
-          </li>
+          </li> */}
           <li>
-            <Link to="/starwarsplan">Starwars Planet</Link>
+            <Link to="/moviesimple">MovieSimple</Link>
           </li>
-          <li>
-            <Link to="/starwarsfilm">Starwars Film</Link>
-          </li>
-          <li>
-            <Link to="/starwarsspecies">Starwars Species</Link>
-          </li>
-          <li>
-            <Link to="/starwarsstarships">Starwars Starships</Link>
-          </li>
+          
         </ul>
      </nav>
         );

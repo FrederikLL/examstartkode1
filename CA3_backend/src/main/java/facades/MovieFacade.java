@@ -26,9 +26,11 @@ public class MovieFacade {
     
      private static EntityManagerFactory emf;
     private static MovieFacade instance;
-    int threads = 8;
+    
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    int threads = 8;
     ExecutorService executorservice = Executors.newFixedThreadPool(threads);
+    String title = "Die%20Hard";
     
     public MovieFacade(){}
     
@@ -52,7 +54,7 @@ public class MovieFacade {
     Callable<String> fetch1 = new Callable<String>() {
         @Override
         public String call() throws Exception {
-            URL url = new URL("http://exam-1187.mydemos.dk/movieInfo/Hair");
+            URL url = new URL("http://exam-1187.mydemos.dk/movieInfo/" + title);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
@@ -71,7 +73,7 @@ public class MovieFacade {
     Callable<String> fetch2 = new Callable<String>() {
         @Override
         public String call() throws Exception {
-            URL url = new URL("http://exam-1187.mydemos.dk/moviePoster/Hair");
+            URL url = new URL("http://exam-1187.mydemos.dk/moviePoster/" + title);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
@@ -91,7 +93,7 @@ public class MovieFacade {
     Callable<String> fetch3 = new Callable<String>() {
         @Override
         public String call() throws Exception {
-            URL url = new URL("http://exam-1187.mydemos.dk/imdbScore/Hair");
+            URL url = new URL("http://exam-1187.mydemos.dk/imdbScore/" + title);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
@@ -110,7 +112,7 @@ public class MovieFacade {
         Callable<String> fetch4 = new Callable<String>() {
         @Override
         public String call() throws Exception {
-            URL url = new URL("http://exam-1187.mydemos.dk/tomatoesScore/Hair");
+            URL url = new URL("http://exam-1187.mydemos.dk/tomatoesScore/" + title);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
@@ -129,7 +131,7 @@ public class MovieFacade {
             Callable<String> fetch5 = new Callable<String>() {
         @Override
         public String call() throws Exception {
-            URL url = new URL("http://exam-1187.mydemos.dk/metacriticScore/Hair");
+            URL url = new URL("http://exam-1187.mydemos.dk/metacriticScore/" + title);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Accept", "application/json;charset=UTF-8");
@@ -148,16 +150,11 @@ public class MovieFacade {
         StringBuilder sb = new StringBuilder();
         Future<String> future1 = executorservice.submit(fetch1);
         Future<String> future2 = executorservice.submit(fetch2);
-      
         //executorservice.
         String result1 = future1.get();
         String result2 = future2.get();
-     
-
         sb = sb.append(result1);
         sb = sb.append(result2);
-    
-
         String all = sb.toString();
         executorservice.shutdown();
         return all;
