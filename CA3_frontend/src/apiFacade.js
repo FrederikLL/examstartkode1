@@ -1,4 +1,4 @@
-const URL = "http://localhost:8080/oneexam";
+const URL = "https://fredll.dk/oneexam-1";
 function handleHttpErrors(res) {
     if (!res.ok) {
         return Promise.reject({ status: res.status, fullError: res.json() })

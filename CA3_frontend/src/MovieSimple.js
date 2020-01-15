@@ -7,10 +7,10 @@ import {
     useRouteMatch,
     useParams} from "react-router-dom";
 
-
+//queryparams til at sætte moviesimple state med en val fra url parametre... virker ikke dog
     const MovieSimple = () => {
 
-        const URL = "http://localhost:8080/oneexam/api/movie/movie-info-simple/"; //?§Queryparams
+        const URL = "https://fredll.dk/oneexam-1/api/movie/movie-info-simple/"; //?§Queryparams
   //const URL = "https://fredll.dk/CA3back/api/info";
     
     
@@ -76,7 +76,7 @@ import {
                 <li>
                        <form onSubmit={handleSubmit}>   
                            <label>
-                           <li><Link to={`${match.url}/`}>Copy your movie name in and click here!</Link></li>
+                           <li><Link to={`${match.url}/`}><h2>Copy your movie name in and click here!</h2></Link></li>
                                
                             <input id ="val" type="text"  value={val} onChange={handleChange}/>
                            </label>

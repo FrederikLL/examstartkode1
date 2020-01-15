@@ -119,6 +119,7 @@ public class MovieResource {
        Gson gson = new Gson();
        String test = gson.toJson(all);
        
+       
         
         return test;
     
@@ -285,7 +286,12 @@ public class MovieResource {
         } finally {
             em.close();
         }
-        return all;
+        Gson gson = new Gson();
+       String test = gson.toJson(all);
+       
+       
+        
+        return test;
     }
     
     @GET
