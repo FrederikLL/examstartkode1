@@ -300,7 +300,6 @@ public class MovieResource {
     public String getMovieCount(@PathParam("title") String title){
         int hitcount = 2;
         hitcount++;
-
         return "This site has " + hitcount + " hits!";
     }
 
