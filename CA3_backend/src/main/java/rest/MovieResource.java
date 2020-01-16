@@ -55,7 +55,7 @@ public class MovieResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getInfoForAll() {
-        return "{\"msg\":\"Hello anonymouss\"}";
+        return "{\"msg\":\"Hello \"}";
     }
     
         @GET
